@@ -1,35 +1,20 @@
 import React from "react"
-
+import User from "./User"
 
 class Users extends React.Component{
-    users = [
-        {
-            id: 1,
-            nickname: 'gGodlik',
-            mail: 'godlik04@mail.ru',
-            comment: 'React is purfect',
-            autorized: true
-        },
-        {
-            id: 2,
-            nickname: 'Mansory',
-            mail: 'arsa2003@mail.ru',
-            comment: 'Mishlen is the best part of life',
-            autorized: false
-        }
-    ]
-
     render () {
-        return (<div className="comment">
-            {this.users.map((user) => (<div className="comment__number">
-                <div className="comment-wrap">
-                    <h3>{user.nickname}</h3>
-                    <h3 id="mail">{user.mail}</h3>
-                </div>    
-                <p>{user.comment}</p>
-            </div>))}
-        </div>
-        )
+        if (this.props.users.length > 0 )
+            return (<div className="comment">
+                {this.props.users.map((user) => (
+                    <User key={user.id} elem={user}/> 
+                ))}
+            </div>)
+        else
+            return (
+                <div className="comment__number">
+                    <h3>No one User!</h3>
+                </div>
+            )
     }
 }
 
