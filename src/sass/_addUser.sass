@@ -1,11 +1,14 @@
 .addUser
+    box-shadow: 6px 6px 1px 0px #fff
+    transition-property: box-shadow
+    transition-duration: 0.5s
     background-color: #fff
     padding-top: 25px
     padding-bottom: 25px
     width: 300px
     margin-left: 175px
     margin-top: 20px
-    margin-right: 0
+    margin-right: 100px
     color: #fff
     border: 3px solid white
     border-radius: 4px
@@ -36,8 +39,29 @@
 .addUser:hover
     border: 3px solid white
     border-radius: 4px
+    box-shadow: 1px 1px 1px 0px #fff
 
 .checkbox
+    overflow: hidden
     display: inline-flex
     height: 15px
     width: 15px
+
+.editAddUser
+    overflow: hidden
+    display: flex
+    width: 100% 
+    margin: 0
+    .addUser
+        overflow: hidden
+        width: 100% 
+        margin: 0
+    input, textarea, button
+        width: 80%
+        overflow: hidden
+    label
+        display: inline-block
+        width: 100px
+    input[type="checkbox"]
+        width: 20px
+    

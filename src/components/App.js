@@ -2,11 +2,19 @@
     import Header from "./Header" 
     import Users from "./Users"  
     import AddUser from "./AddUser"
+    import axios from "axios"
+
+const baseUrl = "https://reqres.in/api/users?page=1"
 
 class App extends React.Component {
     constructor (props)
     {
         super (props)
+
+        // axios.get(baseUrl).then((res) => {
+        //     this.setState({users: res.data.data})
+        // })
+
         this.state = 
         {
             users : [
@@ -34,6 +42,8 @@ class App extends React.Component {
             ]
         }
         this.addUser = this.addUser.bind(this)
+        this.deleteUser = this.deleteUser.bind(this)
+        this.editUser = this.editUser.bind(this)
     }
     render () {     
         return (
@@ -41,7 +51,7 @@ class App extends React.Component {
                 <Header title="List comments on site"/>  
                 <div className="main-wrap">
                     <main className="main">
-                        <Users users={this.state.users}/>
+                        <Users users={this.state.users} onEdit={this.editUser} onDelete={this.deleteUser}/>
                     </main>          
                     <aside>
                         <AddUser onAdd={this.addUser}/>
@@ -49,6 +59,21 @@ class App extends React.Component {
                 </div>
             </div>
         )
+    }
+
+    editUser(user){
+        let allUsers = this.state.users
+        allUsers[user.id - 1] = user
+
+        this.setState({ users: []}, () => {
+            this.setState({users: [...allUsers]})
+        })
+    }
+
+    deleteUser(id){
+        this.setState({
+            users: this.state.users.filter((el) => el.id !== id)
+        })
     }
 
     addUser(user){

@@ -44,16 +44,17 @@ body {
 }
 .main-wrap {
   display: flex;
+  justify-content: space-between;
 }
 
 .comment__number {
+  overflow: hidden;
   border: 2px solid white;
   border-radius: 5px;
   box-shadow: 6px 6px 1px 0px #fff;
   padding: 5px;
   font-family: Ubuntu, sans-serif;
   width: 100%;
-  height: 75px;
   margin: 25px;
   background-color: #fff;
   transition-property: box-shadow;
@@ -77,8 +78,10 @@ body {
 }
 
 .delete-icon {
+  display: block;
   float: right;
   margin: 5px;
+  margin-bottom: 0;
   cursor: pointer;
   font-size: 20px;
   transition-property: scale;
@@ -86,8 +89,10 @@ body {
 }
 
 .edit-icon {
+  display: inline-block;
   float: right;
   margin: 5px;
+  margin-bottom: 0;
   cursor: pointer;
   font-size: 20px;
   transition-property: scale;
@@ -105,13 +110,16 @@ body {
 }
 
 .addUser {
+  box-shadow: 6px 6px 1px 0px #fff;
+  transition-property: box-shadow;
+  transition-duration: 0.5s;
   background-color: #fff;
   padding-top: 25px;
   padding-bottom: 25px;
   width: 300px;
   margin-left: 175px;
   margin-top: 20px;
-  margin-right: 0;
+  margin-right: 100px;
   color: #fff;
   border: 3px solid white;
   border-radius: 4px;
@@ -144,10 +152,35 @@ body {
 .addUser:hover {
   border: 3px solid white;
   border-radius: 4px;
+  box-shadow: 1px 1px 1px 0px #fff;
 }
 
 .checkbox {
+  overflow: hidden;
   display: inline-flex;
   height: 15px;
   width: 15px;
+}
+
+.editAddUser {
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  margin: 0;
+}
+.editAddUser .addUser {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+}
+.editAddUser input, .editAddUser textarea, .editAddUser button {
+  width: 80%;
+  overflow: hidden;
+}
+.editAddUser label {
+  display: inline-block;
+  width: 100px;
+}
+.editAddUser input[type=checkbox] {
+  width: 20px;
 }/*# sourceMappingURL=style.css.map */

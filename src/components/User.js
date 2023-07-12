@@ -1,9 +1,19 @@
 import React from "react"
 import { GiBroadsword } from "react-icons/gi";
 import { GiBugNet } from "react-icons/gi";
+import AddUser from "./AddUser";
 
 class User extends React.Component
 {
+    constructor (props)
+    {
+        super (props)
+        this.state = 
+        {
+            editForm: false
+        }
+    }
+    
     elem = this.props.elem
     render()
     {
@@ -17,8 +27,11 @@ class User extends React.Component
                         <p>{this.elem.comment}</p>
                          <em><p>{this.elem.autorized ? 'autorized' : "none-autorized"}</p></em>
                     </div>
-                    <GiBroadsword className="delete-icon"/>
-                    <GiBugNet className="edit-icon"/>
+                    <GiBroadsword className="edit-icon" onClick={() => {this.setState({
+                        editForm: !this.state.editForm
+                    })}}/>
+                    <GiBugNet className="delete-icon" onClick={(e) => this.props.onDelete(this.elem.id)}/>
+                    <div className="editAddUser">{this.state.editForm && <AddUser user = {this.elem} onAdd={this.props.onEdit}/>}</div>
             </div>
         )
     }
